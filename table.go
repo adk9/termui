@@ -161,7 +161,7 @@ func (table *Table) Buffer() Buffer {
 		if table.Seperator {
 			border := DefaultTxBuilder.Build(strings.Repeat("─", table.Width-2), table.FgColor, table.BgColor)
 			for i, cell := range border {
-				buffer.Set(i+1, pointer_y+1, cell)
+				buffer.Set(table.innerArea.Min.X+i, pointer_y+1, cell)
 			}
 		}
 	}
